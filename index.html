@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih, Selva ❤️</title>
+    <style>
+        body { margin: 0; padding: 0; background: #fff0f5; font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        
+        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; max-width: 80%; z-index: 10; transform: scale(0.9); transition: 0.5s; }
+        .card:hover { transform: scale(1); }
+        
+        h1 { color: #ff69b4; margin-bottom: 15px; }
+        p { color: #555; line-height: 1.6; font-size: 1.1em; margin-bottom: 25px; }
+        
+        .btn { padding: 12px 30px; background: #ff69b4; color: white; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #ff1493; transform: scale(1.05); }
+
+        /* Animasi Hujan Hati */
+        .heart { position: absolute; top: -10%; color: #ff69b4; font-size: 20px; animation: rain linear infinite; }
+        @keyframes rain { to { transform: translateY(110vh) rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="card">
+        <h1>Hai Selva ✨</h1>
+        <p id="pesan">Makasih ya udah mau nemenin aku sejauh ini. Aku bersyukur banget bisa punya kamu di sisiku sampai detik ini. Tetap sama aku terus ya? ❤️</p>
+        <button class="btn" onclick="tutup()">Klik Kalau Sudah Baca</button>
+    </div>
+
+    <script>
+        // Membuat hujan hati
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 400);
+
+        // Efek tombol
+        function tutup() {
+            document.getElementById('pesan').innerHTML = "Aku sayang banget sama kamu, Selva! 🥰";
+            document.getElementById('card').style.background = "#ffe4e1";
+        }
+    </script>
+</body>
+</html>
